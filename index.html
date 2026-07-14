@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>El Rincón de Gredos · Casa Rural en Navaluenga, Ávila</title>
+<meta name="description" content="Casa rural en el corazón de la Sierra de Gredos, Navaluenga (Ávila). 6 habitaciones, piedra, silencio y naturaleza. Gestionada por Laura Sánchez.">
+<link rel="icon" href="logo_seal.png">
+<style>
+  :root{
+    --verde: #2C4A2E;
+    --verde-oscuro: #1d321f;
+    --piedra: #BB7355;
+    --oro: #C9A84C;
+    --carbon: #2D2D2D;
+    --crema: #F5F0E8;
+    --crema-suave: #EFE7D8;
+    --blanco: #ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family: "Georgia", "Cormorant", serif;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    color:var(--carbon);
+    background:var(--crema);
+    line-height:1.6;
+  }
+  body, input, textarea, button{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+  h1,h2,h3,.brand{
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight:600;
+    letter-spacing:0.01em;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  .container{max-width:1140px;margin:0 auto;padding:0 24px;}
+  section{padding:80px 0;}
+  .eyebrow{
+    text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;
+    color:var(--oro);font-weight:700;margin-bottom:10px;
+  }
+  h2{font-size:2.1rem;color:var(--verde-oscuro);margin-bottom:18px;}
+  p{color:#4b4b46;}
+  .lead{font-size:1.1rem;max-width:640px;}
+
+  /* Header */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(245,240,232,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(44,74,46,0.12);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 24px;max-width:1140px;margin:0 auto;
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-size:1.15rem;color:var(--verde-oscuro);}
+  .brand img{width:38px;height:38px;border-radius:50%;}
+  .nav-links{display:flex;gap:28px;list-style:none;font-size:.95rem;}
+  .nav-links a{padding:6px 2px;border-bottom:2px solid transparent;transition:.2s;}
+  .nav-links a:hover{border-color:var(--oro);color:var(--verde);}
+  .nav-cta{
+    background:var(--verde);color:var(--crema);padding:9px 20px;border-radius:3px;
+    font-size:.9rem;letter-spacing:.03em;
+  }
+  .nav-cta:hover{background:var(--verde-oscuro);}
+  .burger{display:none;background:none;border:0;font-size:1.6rem;color:var(--verde-oscuro);cursor:pointer;}
+
+  @media (max-width:860px){
+    .nav-links{
+      position:absolute;top:100%;left:0;right:0;
+      flex-direction:column;background:var(--crema);
+      padding:18px 24px;gap:16px;border-bottom:1px solid rgba(44,74,46,0.12);
+      display:none;
+    }
+    .nav-links.open{display:flex;}
+    .nav-cta{display:none;}
+    .burger{display:block;}
+  }
+
+  /* Hero */
+  .hero{
+    height:100vh;min-height:560px;position:relative;
+    display:flex;align-items:center;color:var(--crema);
+    background:linear-gradient(180deg,rgba(20,26,20,.35),rgba(20,26,20,.65)), url('hotel.png') center/cover no-repeat;
+  }
+  .hero-content{max-width:640px;padding:0 24px;margin:0 auto;text-align:center;}
+  .hero .eyebrow{color:var(--oro);}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.4rem);margin-bottom:18px;line-height:1.15;}
+  .hero p{color:#eee6d8;font-size:1.15rem;margin-bottom:32px;}
+  .btn-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:14px 30px;border-radius:3px;font-size:.95rem;
+    letter-spacing:.03em;transition:.2s;border:1px solid transparent;
+  }
+  .btn-primary{background:var(--oro);color:var(--verde-oscuro);font-weight:600;}
+  .btn-primary:hover{background:#dcb85c;}
+  .btn-outline{border-color:var(--crema);color:var(--crema);}
+  .btn-outline:hover{background:rgba(245,240,232,.12);}
+
+  /* Sobre Laura */
+  .about{background:var(--blanco);}
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+  .about-quote{
+    border-left:3px solid var(--oro);padding-left:20px;margin-top:22px;
+    font-style:italic;color:var(--verde-oscuro);font-size:1.05rem;
+  }
+  .about-facts{display:flex;gap:28px;margin-top:26px;flex-wrap:wrap;}
+  .fact{}
+  .fact strong{display:block;font-size:1.6rem;color:var(--verde);}
+  .fact span{font-size:.82rem;color:#777;text-transform:uppercase;letter-spacing:.05em;}
+  .about-photo{
+    border-radius:6px;overflow:hidden;box-shadow:0 20px 40px rgba(44,30,20,.18);
+  }
+  @media (max-width:860px){
+    .about-grid{grid-template-columns:1fr;gap:32px;}
+    .about-photo{order:-1;}
+  }
+
+  /* Rooms */
+  .rooms{background:var(--crema-suave);}
+  .rooms-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:44px;
+  }
+  .room-card{
+    background:var(--blanco);border-radius:6px;overflow:hidden;
+    box-shadow:0 10px 26px rgba(44,30,20,.08);transition:transform .25s, box-shadow .25s;
+  }
+  .room-card:hover{transform:translateY(-4px);box-shadow:0 18px 34px rgba(44,30,20,.14);}
+  .room-photo{height:210px;background-size:cover;background-position:center;}
+  .room-placeholder{
+    height:210px;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,var(--verde) 0%,var(--verde-oscuro) 100%);
+    color:var(--crema);position:relative;overflow:hidden;
+  }
+  .room-placeholder svg{width:46px;height:46px;opacity:.85;}
+  .room-placeholder .ph-label{
+    position:absolute;bottom:10px;right:12px;font-size:.68rem;
+    letter-spacing:.06em;text-transform:uppercase;opacity:.65;
+  }
+  .room-body{padding:22px 22px 26px;}
+  .room-body h3{font-size:1.25rem;color:var(--verde-oscuro);margin-bottom:6px;}
+  .room-tag{
+    display:inline-block;font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--piedra);margin-bottom:10px;font-weight:700;
+  }
+  .room-body p{font-size:.92rem;}
+  @media (max-width:900px){.rooms-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:600px){.rooms-grid{grid-template-columns:1fr;}}
+
+  /* Galeria */
+  .gallery{background:var(--blanco);}
+  .gallery-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:160px;gap:12px;margin-top:40px;
+  }
+  .gallery-grid img{width:100%;height:100%;object-fit:cover;border-radius:4px;}
+  .gallery-grid .big{grid-column:span 2;grid-row:span 2;}
+  @media (max-width:860px){
+    .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:140px;}
+    .gallery-grid .big{grid-column:span 2;grid-row:span 1;}
+  }
+
+  /* Entorno */
+  .entorno{
+    background:linear-gradient(180deg,rgba(20,26,20,.55),rgba(20,26,20,.72)), url('paisaje.png') center/cover no-repeat;
+    color:var(--crema);
+  }
+  .entorno .eyebrow{color:var(--oro);}
+  .entorno h2{color:var(--crema);}
+  .entorno-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;}
+  .entorno-list{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:14px;}
+  .entorno-list li{padding-left:26px;position:relative;color:#eee6d8;}
+  .entorno-list li::before{content:"—";position:absolute;left:0;color:var(--oro);}
+  .entorno-photo{border-radius:6px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.35);}
+  @media (max-width:860px){.entorno-grid{grid-template-columns:1fr;}}
+
+  /* Contacto */
+  .contact{background:var(--verde-oscuro);color:var(--crema);}
+  .contact h2{color:var(--crema);}
+  .contact .lead{color:#d8d2c2;}
+  .contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;margin-top:20px;}
+  .contact-info-item{margin-bottom:22px;}
+  .contact-info-item .eyebrow{color:var(--oro);}
+  .contact-info-item p{color:#e4ded0;}
+  form{display:grid;gap:14px;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  label{font-size:.78rem;text-transform:uppercase;letter-spacing:.05em;color:#cfc8b6;margin-bottom:5px;display:block;}
+  input,textarea{
+    width:100%;padding:12px 14px;border-radius:3px;border:1px solid rgba(245,240,232,.25);
+    background:rgba(245,240,232,.06);color:var(--crema);font-size:.95rem;font-family:inherit;
+  }
+  input::placeholder,textarea::placeholder{color:#a7a190;}
+  input:focus,textarea:focus{outline:2px solid var(--oro);background:rgba(245,240,232,.1);}
+  textarea{resize:vertical;min-height:100px;}
+  .submit-btn{
+    justify-self:start;background:var(--oro);color:var(--verde-oscuro);border:0;
+    padding:14px 32px;border-radius:3px;font-weight:600;letter-spacing:.03em;cursor:pointer;font-size:.95rem;
+  }
+  .submit-btn:hover{background:#dcb85c;}
+  .form-note{font-size:.82rem;color:#b9b29d;margin-top:2px;}
+  .form-success{
+    display:none;background:rgba(201,168,76,.12);border:1px solid var(--oro);
+    padding:16px 18px;border-radius:4px;color:#f3e8c9;font-size:.92rem;
+  }
+  @media (max-width:860px){.contact-grid{grid-template-columns:1fr;} .form-row{grid-template-columns:1fr;}}
+
+  footer{
+    background:var(--carbon);color:#bdb9ad;padding:34px 0;text-align:center;font-size:.85rem;
+  }
+  footer strong{color:var(--crema);}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="#inicio" class="brand"><img src="logo_seal.png" alt="El Rincón de Gredos"> El Rincón de Gredos</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#laura">Sobre Laura</a></li>
+      <li><a href="#habitaciones">Habitaciones</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#entorno">Entorno</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="#contacto" class="nav-cta">Contactar</a>
+    <button class="burger" id="burgerBtn" aria-label="Abrir menú">☰</button>
+  </nav>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="hero-content">
+    <div class="eyebrow">Navaluenga · Sierra de Gredos · Ávila</div>
+    <h1>Tu rincón de piedra en el corazón de Gredos</h1>
+    <p>Seis habitaciones con baño propio, calefacción y el desayuno casero incluido. Muévete al ritmo de la montaña, no del reloj.</p>
+    <div class="btn-row">
+      <a href="#contacto" class="btn btn-primary">Consultar disponibilidad</a>
+      <a href="#habitaciones" class="btn btn-outline">Ver habitaciones</a>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="laura">
+  <div class="container about-grid">
+    <div>
+      <div class="eyebrow">Sobre Laura</div>
+      <h2>18 años de hostelería, un solo objetivo: que te sientas en casa</h2>
+      <p>Laura Sánchez conoce cada rincón del valle. Después de años como recepcionista y jefa de recepción en hoteles de Madrid y Ávila, hace cuatro se lanzó por su cuenta: compró esta casa de piedra en Navaluenga y la reformó ella misma, habitación a habitación.</p>
+      <p style="margin-top:14px;">Hoy la gestiona en solitario — y eso significa que quien te atiende, te recibe y te recomienda la ruta de mañana es siempre la misma persona: ella. Sin recepción impersonal, sin call center. Solo trato cercano y de tú a tú.</p>
+      <div class="about-quote">"Sé lo que quiere el huésped porque he estado al otro lado del mostrador. Aquí no eres una reserva, eres alguien a quien espero."</div>
+      <div class="about-facts">
+        <div class="fact"><strong>18</strong><span>Años en hostelería</span></div>
+        <div class="fact"><strong>4</strong><span>Años como propietaria</span></div>
+        <div class="fact"><strong>6</strong><span>Habitaciones, cuidadas una a una</span></div>
+      </div>
+    </div>
+    <div class="about-photo">
+      <img src="entorno.png" alt="Entrada de la Casa Rural El Rincón de Gredos">
+    </div>
+  </div>
+</section>
+
+<section class="rooms" id="habitaciones">
+  <div class="container">
+    <div class="eyebrow">Alojamiento</div>
+    <h2>Seis habitaciones, cada una con su carácter</h2>
+    <p class="lead">Todas con baño propio, ropa de cama de algodón y vistas a la Sierra de Gredos o al jardín. Desayuno casero incluido.</p>
+
+    <div class="rooms-grid">
+
+      <div class="room-card">
+        <div class="room-photo" style="background-image:url('habitacion_01.png');"></div>
+        <div class="room-body">
+          <span class="room-tag">Superior</span>
+          <h3>Ventana a Gredos</h3>
+          <p>Balcón privado con vistas directas a los picos de la Sierra. Cama doble, sillón de lectura y la luz de la mañana entrando de lleno.</p>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <div class="room-photo" style="background-image:url('habitacion_02.png');"></div>
+        <div class="room-body">
+          <span class="room-tag">Suite</span>
+          <h3>Suite del Fuego</h3>
+          <p>Chimenea de leña, bañera de piedra y vigas de madera vista. La habitación pensada para no salir de ella en todo el fin de semana.</p>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <div class="room-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 20l4-8 3 4 4-7 7 11H3z"/></svg>
+          <span class="ph-label">Foto próximamente</span>
+        </div>
+        <div class="room-body">
+          <span class="room-tag">Doble</span>
+          <h3>El Robledal</h3>
+          <p>Orientada al bosque de robles, con escritorio de madera maciza y una quietud que invita a leer sin prisa.</p>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <div class="room-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 20l4-8 3 4 4-7 7 11H3z"/></svg>
+          <span class="ph-label">Foto próximamente</span>
+        </div>
+        <div class="room-body">
+          <span class="room-tag">Doble</span>
+          <h3>El Arroyo</h3>
+          <p>Con el sonido del riachuelo de fondo. Suelo de barro cocido, cabecero de forja y una terracita compartida.</p>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <div class="room-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 20l4-8 3 4 4-7 7 11H3z"/></svg>
+          <span class="ph-label">Foto próximamente</span>
+        </div>
+        <div class="room-body">
+          <span class="room-tag">Familiar</span>
+          <h3>El Olivar</h3>
+          <p>La más amplia, con cama de matrimonio y dos individuales. Ideal para familias que viajan a desconectar juntas.</p>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <div class="room-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 20l4-8 3 4 4-7 7 11H3z"/></svg>
+          <span class="ph-label">Foto próximamente</span>
+        </div>
+        <div class="room-body">
+          <span class="room-tag">Doble</span>
+          <h3>La Piedra Vieja</h3>
+          <p>La habitación más antigua de la casa, con el muro de piedra original a la vista. Íntima y silenciosa.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="gallery" id="galeria">
+  <div class="container">
+    <div class="eyebrow">Galería</div>
+    <h2>La casa, tal y como es</h2>
+    <div class="gallery-grid">
+      <img class="big" src="hotel.png" alt="Fachada de la Casa Rural El Rincón de Gredos">
+      <img src="habitacion_01.png" alt="Habitación con vistas a la Sierra de Gredos">
+      <img src="habitacion_02.png" alt="Suite con chimenea y bañera de piedra">
+      <img src="entorno.png" alt="Camino de entrada a la casa rural">
+      <img src="paisaje.png" alt="Vistas de la Sierra de Gredos">
+    </div>
+  </div>
+</section>
+
+<section class="entorno" id="entorno">
+  <div class="container entorno-grid">
+    <div>
+      <div class="eyebrow">Entorno &amp; experiencias</div>
+      <h2>La Sierra de Gredos, a un paso de la puerta</h2>
+      <p style="color:#e4ded0;">Navaluenga es punto de partida de algunas de las rutas más bonitas de Gredos. Laura te prepara el itinerario según el día, el tiempo y lo que te apetezca.</p>
+      <ul class="entorno-list">
+        <li>Rutas de senderismo de todos los niveles, a pie desde la casa</li>
+        <li>Observación de estrellas — cielos sin contaminación lumínica</li>
+        <li>Piscinas naturales y gargantas de agua fría en verano</li>
+        <li>Rutas en bicicleta de montaña por los caminos del valle</li>
+        <li>Gastronomía local: quesos, embutido ibérico y cocina de matanza</li>
+      </ul>
+    </div>
+    <div class="entorno-photo">
+      <img src="paisaje.png" alt="Paisaje de la Sierra de Gredos al amanecer">
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="container contact-grid">
+    <div>
+      <div class="eyebrow">Contacto</div>
+      <h2>Cuéntanos tus fechas</h2>
+      <p class="lead">Escríbenos y Laura te responde personalmente con disponibilidad y precio — sin intermediarios, sin comisiones de Booking.</p>
+
+      <div class="contact-info-item">
+        <div class="eyebrow">Ubicación</div>
+        <p>Navaluenga, Ávila · Sierra de Gredos</p>
+      </div>
+      <div class="contact-info-item">
+        <div class="eyebrow">Email</div>
+        <p>reservas@elrincondegredos.com</p>
+      </div>
+      <div class="contact-info-item">
+        <div class="eyebrow">Teléfono / WhatsApp</div>
+        <p>+34 600 000 000</p>
+      </div>
+    </div>
+
+    <div>
+      <form id="contactForm">
+        <div class="form-row">
+          <div>
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <label for="fechas">Fechas deseadas</label>
+            <input type="text" id="fechas" name="fechas" placeholder="Ej. 10-13 agosto">
+          </div>
+          <div>
+            <label for="personas">Nº de personas</label>
+            <input type="number" id="personas" name="personas" min="1" placeholder="2">
+          </div>
+        </div>
+        <div>
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos qué buscas..."></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Enviar consulta</button>
+        <p class="form-note">Esto es una consulta de disponibilidad, no una reserva confirmada. Laura te responde en menos de 24h.</p>
+        <div class="form-success" id="formSuccess">¡Gracias! Tu consulta se ha preparado — se abrirá tu cliente de correo para enviarla a Laura.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p><strong>El Rincón de Gredos</strong> · Navaluenga, Ávila · Sierra de Gredos</p>
+    <p style="margin-top:6px;">© 2026 El Rincón de Gredos. Gestionada por Laura Sánchez.</p>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burgerBtn');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  const form = document.getElementById('contactForm');
+  const success = document.getElementById('formSuccess');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const nombre = document.getElementById('nombre').value;
+    const email = document.getElementById('email').value;
+    const fechas = document.getElementById('fechas').value;
+    const personas = document.getElementById('personas').value;
+    const mensaje = document.getElementById('mensaje').value;
+
+    const subject = encodeURIComponent('Consulta de disponibilidad - ' + nombre);
+    const body = encodeURIComponent(
+      'Nombre: ' + nombre + '\n' +
+      'Email: ' + email + '\n' +
+      'Fechas deseadas: ' + fechas + '\n' +
+      'Nº de personas: ' + personas + '\n\n' +
+      'Mensaje:\n' + mensaje
+    );
+    success.style.display = 'block';
+    window.location.href = 'mailto:reservas@elrincondegredos.com?subject=' + subject + '&body=' + body;
+  });
+</script>
+
+</body>
+</html>
